@@ -11,11 +11,10 @@
 # AVR128DB48 I2C_Host Example Component for CNano Explorer: I2C Proximity Sensor (Callbacks, Data Streamer)
 
 When running the application, using the MPLAB Data Visualizer, you should see something similar to the following: 
-![alt text](images/avr128db48-i2c-proximity-sensor-polled-dataStreamer_avrDB.png)
+![alt text](images/avr128db48-i2c-proximity-sensor-callbacks-dataStreamer_avrDB.png)
 
 The following is the required MCC Melody configuration.
-![alt text](images/avr128db48-i2c-proximity-sensor-polled-dataStreamer_avrDB_configuration.png)
-
+![alt text](images/avr128db48-i2c-proximity-sensor-callbacks-dataStreamer_avrDB_configuration.png)
 <!-- This is where the introduction to the example goes, including mentioning the peripherals used -->
 
 ## Related Documentation
