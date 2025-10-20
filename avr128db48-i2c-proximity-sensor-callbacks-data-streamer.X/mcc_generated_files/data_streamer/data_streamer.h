@@ -1,3 +1,4 @@
+
 /**
  * DATASTREAMER Generated Driver API Header File.
  *
@@ -33,9 +34,8 @@
 #ifndef DATA_STREAMER_H
 #define	DATA_STREAMER_H
 
-#include <stddef.h>
+#include <stdio.h>
 #include <stdint.h>
-#include "data_streamer_comms.h"
 
 /**  
  * @def Data Streamer Start Byte Macro.

@@ -11,7 +11,6 @@
                        displayName="data_streamer"
                        projectFiles="true">
           <itemPath>mcc_generated_files/data_streamer/data_streamer.h</itemPath>
-          <itemPath>mcc_generated_files/data_streamer/data_streamer_comms.h</itemPath>
         </logicalFolder>
         <logicalFolder name="i2c_host" displayName="i2c_host" projectFiles="true">
           <itemPath>mcc_generated_files/i2c_host/i2c_host_event_types.h</itemPath>
@@ -72,7 +71,6 @@
                        displayName="data_streamer"
                        projectFiles="true">
           <logicalFolder name="src" displayName="src" projectFiles="true">
-            <itemPath>mcc_generated_files/data_streamer/src/data_streamer_comms.c</itemPath>
             <itemPath>mcc_generated_files/data_streamer/src/data_streamer.c</itemPath>
           </logicalFolder>
           <itemPath>mcc_generated_files/data_streamer/data_streamer.ds</itemPath>

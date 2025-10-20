@@ -31,6 +31,10 @@
 */
 
 #include "../data_streamer.h"
+#include "../../uart/usart3.h"
+
+static const uart_drv_interface_t *DS_UART = &UART3;
+
 
 struct DATA_STREAMER_STRUCT DataStreamer;
 struct PACKAGE_STRUCT DATA_STREAMER_PACKAGE;
@@ -40,21 +44,22 @@ void DataStreamer_Initialize(void)
     DataStreamer_PackageSet(&DataStreamer, sizeof (DataStreamer));
 }
 
+static void DataStreamer_VariableWrite(char var)
+{
+    while (!(DS_UART->IsTxReady()));
+    DS_UART->Write(var);
+};
+
 void DataStreamer_FrameSend(void * package, size_t length)
 {
-    /* cppcheck-suppress misra-c2012-11.5 */
     char * dp = package;
     DataStreamer_VariableWrite(DATA_STREAMER_START_BYTE);
-    size_t counter = length;
-    while (counter > 0U)
+    while (length--)
     {
         DataStreamer_VariableWrite(*dp++);
-        counter--;
     }
     DataStreamer_VariableWrite(DATA_STREAMER_END_BYTE);
-    while (DataStreamer_IsTxDone() == false)
-    {
-    }
+    while (!(DS_UART->IsTxDone()));
 };
 
 void DataStreamer_PackageSet(void * customStructHandler, size_t customlength)

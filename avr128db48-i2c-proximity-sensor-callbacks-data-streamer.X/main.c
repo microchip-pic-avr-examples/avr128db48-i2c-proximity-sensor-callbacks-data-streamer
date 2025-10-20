@@ -25,7 +25,7 @@
  * 
  * @ingroup i2c_host example
  * 
- * @version I2C_HOST EXAMPLE Example Version 1.0.0
+ * @version I2C_HOST EXAMPLE Example Version 1.0.1
  *
  * @brief Generated file for
  *        Example:           4. I2C Proximity Sensor 
@@ -35,6 +35,7 @@
 */
 
 #include "mcc_generated_files/system/system.h"
+
 #include <util/delay.h>
 
 // Note:  VCNL4200 - High Sensitivity Long Distance Proximity and Ambient Light Sensor With I2C Interface
@@ -47,13 +48,14 @@ uint8_t VCNL4200_Initialize(void);
 uint8_t VCNL4200_ProximityRead(uint16_t* proximityValue);
 void Timer_Callback_100ms(void);
 
-// TODO: Replace TimerX with name of const struct TIMER_INTERFACE, from MCC Generated Files > timer > {timer_header}X 
-static const struct TIMER_INTERFACE *Timer = &Timer0;    // TODO: Replace TimerX with the timer instance number
-static volatile bool timerTick = false; // volatile because this variable is used inside & outside the ISR.
+// TODO: Replace TimerX with number of Timer chosen as dependency. 
+//       Matches name of const struct TIMER_INTERFACE, from MCC Generated Files > timer > tcXX.c
+static const struct TIMER_INTERFACE *Timer = &Timer0; 
+
+static volatile bool SEND_FRAME = false; // volatile because this variable is used inside & outside the ISR.
 static uint16_t proximityValue; // VCNL4200 sensor result
 static volatile uint8_t frameCount; 
 static i2c_host_error_t errorState = I2C_ERROR_NONE;
-
 
 uint8_t VCNL4200_ProximityRead(uint16_t* proximityValue)
 {
@@ -94,7 +96,7 @@ uint8_t VCNL4200_Initialize(void)
 
 void Timer_Callback_100ms(void)
 {
-    timerTick = true; 
+    SEND_FRAME = true;
 }
 
 int main(void)
@@ -108,7 +110,7 @@ int main(void)
 
     while(1)
     {
-        if(timerTick == true)
+        if(SEND_FRAME == true)
         {
             errorState = VCNL4200_ProximityRead(&proximityValue);
             DataStreamer.proximity = proximityValue;
@@ -116,7 +118,7 @@ int main(void)
             WriteFrame();
             IO_LED_Toggle();
             IO_Debug_Toggle();
-            timerTick = false;
+            SEND_FRAME = false;
         }
     }    
 }
