@@ -12,7 +12,7 @@
 
 The [I<sup>2</sup>C Proximity Sensor example](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EX.RUNNING.I2C.HOST.PROXIMITY.SENSOR&version=latest&redirect=true "I2C Proximity Sensor example"
 ), of the [MCC Melody I<sup>2</sup>C Example Component (for the Curiosity Nano Explorer)](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EXAMPLE.COMPONENT&version=latest&redirect=true "MCC Melody I<sup>2</sup>C Example Component for the Curiosity Nano Explorer"
-), is used here in the Polled implementation, with the Data Streamer visualization. 
+), is used here in the Polled implementation with the Data Streamer visualization. 
 
 ![alt text](images\avr128db48-i2c-proximity-sensor-callbacks-dataStreamer_avrDB_intro.png)
 
@@ -25,7 +25,7 @@ In the MCC Melody Data Streamer library configuration, the appropriately typed v
 
 The below image of the MPLAB Data Visualizer shows the application running, where proximityValue and framecount have been added to the DVRT Streaming Table and Time Plot: 
 ![alt text](images/avr128db48-i2c-proximity-sensor-polled-dvrt.png)
-**Note:** In the HEX terminal output, at the bottom of the image, An individual Data Streamer Frame is highlighted in red. The frame can be identified by the StartByte of 0x03 and the EndByte of 0xFC. 
+**Note:** An individual Data Streamer Frame is highlighted in red at the bottom of the image in the hex terminal output. The frame can be identified by the StartByte of 0x03 and the EndByte of 0xFC. 
 
 
 ## Setup
