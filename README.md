@@ -25,6 +25,7 @@ In the MCC Melody Data Streamer library configuration, the appropriately typed v
 
 The below image of the MPLAB Data Visualizer shows the application running, where proximityValue and framecount have been added to the DVRT Streaming Table and Time Plot: 
 ![alt text](images/avr128db48-i2c-proximity-sensor-polled-dvrt.png)
+
 **Note:** An individual Data Streamer Frame is highlighted in red at the bottom of the image in the hex terminal output. The frame can be identified by the StartByte of 0x03 and the EndByte of 0xFC. 
 
 
