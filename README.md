@@ -8,15 +8,16 @@
    </picture>
 </a>
 
-# AVR128DB48 I<sup>2</sup>C_Host Example Component for CNano Explorer: I<sup>2</sup>C Proximity Sensor (Callbacks, Data Streamer)
+# AVR128DB48 I2C_Host Example Component for CNano Explorer: I<sup>2</sup>C Proximity Sensor (Callbacks, Data Streamer)
 
 The [I<sup>2</sup>C Proximity Sensor example](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EX.RUNNING.I2C.HOST.PROXIMITY.SENSOR&version=latest&redirect=true "I2C Proximity Sensor example"
 ), of the [MCC Melody I<sup>2</sup>C Example Component (for the Curiosity Nano Explorer)](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EXAMPLE.COMPONENT&version=latest&redirect=true "MCC Melody I<sup>2</sup>C Example Component for the Curiosity Nano Explorer"
 ), is used here in the Polled implementation with the Data Streamer visualization. 
 
-![alt text](images\avr128db48-i2c-proximity-sensor-callbacks-dataStreamer_avrDB_intro.png)
+![alt text](images/avr128db48-i2c-proximity-sensor-callbacks-dataStreamer_avrDB_intro.png)
 
-This example demonstrates how to read the value of the VCNL4200 proximity sensor on the Curiosity Nano Explorer, with the Data Streamer Visualization Output selected. Every 100 ms, an LED and a Debug I/O pin are toggled. A Timer overflow callback is used to send a Data Streamer frame every 100 ms.
+This example demonstrates how to read the value of the VCNL4200 proximity sensor on the Curiosity Nano Explorer, with the Data Streamer Visualization Output selected. Every 100 ms, an LED and a Debug I/O pin are toggled every 100 ms and a Data Streamer frame is sent to the  [MPLAB® Data Visualizer](https://www.microchip.com/en-us/tools-resources/debug/mplab-data-visualizer "MPLAB® Data Visualizer").  
+
 
 ## Operation 
 In the MCC Melody Data Streamer library configuration, the appropriately typed variables are added to the Data Streamer table.  
@@ -24,6 +25,7 @@ In the MCC Melody Data Streamer library configuration, the appropriately typed v
 ![alt text](images/avr128db48-i2c-proximity-sensor-callbacks-datastreamerTable_uartPins.png)
 
 The below image of the MPLAB Data Visualizer shows the application running, where proximityValue and framecount have been added to the DVRT Streaming Table and Time Plot: 
+
 ![alt text](images/avr128db48-i2c-proximity-sensor-polled-dvrt.png)
 
 **Note:** An individual Data Streamer Frame is highlighted in red at the bottom of the image in the hex terminal output. The frame can be identified by the StartByte of 0x03 and the EndByte of 0xFC. 
@@ -32,9 +34,9 @@ The below image of the MPLAB Data Visualizer shows the application running, wher
 ## Setup
 The image below outlines the complete MPLAB Code Configurator (MCC) Melody configuration, including all the selected tasks implemented in this example, as seen in the [MCC Melody Builder](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=MCC.MELODY.BUILDER&version=latest&redirect=true "MCC Melody Builder"). 
 
-![alt text](images\avr128db48-i2c-proximity-sensor-callbacks-dataStreamer_avrDB_configuration.png)
+![alt text](images/avr128db48-i2c-proximity-sensor-callbacks-dataStreamer_avrDB_configuration.png)
 
-![alt text](images\avr128db48-i2c-proximity-sensor-callbacks-dataStreamer_avrDB_configuration_pins.png)
+![alt text](images/avr128db48-i2c-proximity-sensor-callbacks-dataStreamer_avrDB_configuration_pins.png)
 
 ## MCC Melody Example Components
 Example Components are a tight integration of learning material directly into MCC. This allows users to conveniently place the configuration instructions side-by-side to the components they are configuring. For more information, refer to the [MCC Melody Example Components](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=MCC.MELODY.EXAMPLES&version=latest&redirect=true) introduction. 
@@ -68,3 +70,4 @@ Open the MCC Content Manager ![CM_icon](images/Icon-MPLAB-CM24.png) to verify th
 - AVR128DB48 Curiosity Nano [(EV35L43A)](https://www.microchip.com/en-us/development-tool/EV35L43A)
 - Curiosity Nano Explorer [(EV58G97A)](https://www.microchip.com/en-us/development-tool/EV58G97A)
 
+gi
